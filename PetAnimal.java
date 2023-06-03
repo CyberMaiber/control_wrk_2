@@ -4,30 +4,20 @@ import java.text.ParseException;
 
 public class PetAnimal extends Animal {
     String type;
-    // @Override
-    // Animal creater(Animal anml) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'creater'");
-    // }
-    public PetAnimal(String name,String birthDay,String type) throws Exception {
+
+    public PetAnimal(String name, String birthDay, String type) throws Exception {
         this.name = name;
         try {
             this.birthDay = Animal.parseDate(birthDay);
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            throw new Exception("Формат даты некорректен");
         }
         this.type = type;
     }
-    
-    public addPet (String name,String birthDay,String type) {
-        
+
+    @Override
+    public String toString() {
+        return "Pet: " + this.name + " " + this.type + " brth_d " + this.dateToString();
     }
-    
-     
 
-
-  
-
-    
 }
